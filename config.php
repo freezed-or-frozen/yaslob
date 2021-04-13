@@ -8,7 +8,7 @@
  * @licence MIT
  */
 
- // Path to SQLite database
- define("DATABASE_PATH", "db/ebooks.sqlite");
+// Path to SQLite database
+define("DATABASE_PATH", "db/ebooks.sqlite");
 
- ?>
+?>
