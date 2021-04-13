@@ -16,7 +16,7 @@ class Database {
     private $dbh = NULL;
 
     /**
-     * Initialize Database
+     * Initialize SQLite 3 Database access
      * @param database_path
      */
     public function __construct($database_path) {

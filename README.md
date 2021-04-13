@@ -1,12 +1,12 @@
 # yaslob
-Yet Another Simple Library Of Books
+Yet Another Simple Library Of eBooks
 
 ## Context
 I was searching a tool to handle my ebooks stored on small server (Netgear Stora in my case). [Calibre](https://calibre-ebook.com/) is a very powerful but too complex and needs a lots of RAM and CPU. [Cops](https://github.com/seblucas/cops) fulfills my needs but still needs a Calibre installation.
 
 
 ## Goals
-So YASLOB : Yet Another Simple Library Of Books
+So YASLOB : Yet Another Simple Library Of eBooks
 Requirements, **yaslob** :
   * [ ] can be installed on a small server (PHP 5.1.6)
   * [ ] does not need lots of dependencies on server side
