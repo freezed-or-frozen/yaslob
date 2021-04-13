@@ -1,7 +1,7 @@
 <?php
 /**
  * YASLOB
- * Controller file
+ * Controller file (C of MVC)
  * 
  * @author David SALLÉ
  * @date April 2021
@@ -10,5 +10,7 @@
 
 // Include configuration and database
 include("config.php");
+include("db.php");
+
 
 ?>
