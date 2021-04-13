@@ -23,11 +23,11 @@ if (isset($_GET["action"])) {
 
 // Router : choose action to do
 if ($action == "welcome") {
-    // Print the welcome page
-    include("templates/welcome.php");
+    // Print the home/welcome page
+    include("templates/home.php");
 } else {
-    // Print the welcome page by default
-    include("templates/welcome.php");
+    // Print the home/welcome page by default
+    include("templates/home.php");
 }
 
 ?>
