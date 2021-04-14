@@ -33,19 +33,13 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="index.php?action=welcome">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?by=name">By name</a>
+                <a class="nav-link" href="index.php?action=list">Ebooks</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?by=date">By date</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?by=tags">By tags</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="index.php?by=new">New</a>
+                <a class="nav-link" href="index.php?action=new">New</a>
             </li>
         </ul>
         

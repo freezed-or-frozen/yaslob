@@ -16,8 +16,8 @@ include("header.php");
 
 
 <!-- Content of the welcome page -->
-<h1>Welcome</h1>
-<p>...</p>
+<h1>Home</h1>
+<p>Welcome to <strong>YASLOB</strong> (Yet Another Simple Library Of eBooks) !</p>
 
 
 <?php
