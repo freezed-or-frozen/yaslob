@@ -51,6 +51,13 @@ include("header.php");
             echo "<a href=\"index.php?action=list&tag={$tag}\" class=\"badge badge-info\">{$tag}</a>&nbsp;";
         }
         echo "</p>";
+        echo "<p>";
+        if ($ebook["nsfk"] == 1) {
+            echo "NSFK : <i class=\"bi bi-hand-thumbs-down-fill\"></i>";
+        } else {
+            echo "NSFK : <i class=\"bi bi-hand-thumbs-up-fill\"></i>";
+        }
+        echo "</p>";
 
         echo "</td>";
         echo "</tr>";
