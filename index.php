@@ -25,6 +25,9 @@ if (isset($_GET["action"])) {
 if ($action == "welcome") {
     // Print the home/welcome page
     include("templates/home.php");
+} else if ($action == "new") {
+    // Print the new ebook page
+    include("templates/new.php");
 } else {
     // Print the home/welcome page by default
     include("templates/home.php");
