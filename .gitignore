@@ -1,2 +1,5 @@
 # Deployment bash script used to make some tests locally
 deployment.sh
+
+# Ebooks and covers files
+data

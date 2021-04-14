@@ -11,4 +11,9 @@
 // Path to SQLite database
 define("DATABASE_PATH", "db/ebooks.sqlite");
 
+// Path to ebook cover images
+define("COVERS_PATH", "data/covers");
+
+// Path to ebook pdf
+define("EBOOKS_PATH", "data/ebooks");
 ?>

@@ -31,3 +31,8 @@ body {
         font-size: 3.5rem;
     }
 }
+
+.thumbnail {
+    width: 100px;
+    height: 130px;
+}

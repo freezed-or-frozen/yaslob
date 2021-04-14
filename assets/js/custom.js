@@ -94,7 +94,7 @@ function uploadEbook() {
 
         // Send data
         $.ajax({
-            url: "http://127.0.0.1/ebooks/new.php",
+            url: "http://127.0.0.1/yaslob/index.php?action=upload",
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -103,7 +103,7 @@ function uploadEbook() {
                 console.log("Server response (success) => " + response);
 
                 // Redirection
-                window.location.href = "http://127.0.0.1/ebooks/index.php?by=date";
+                window.location.href = "http://127.0.0.1/yaslob/index.php?action=list";
             },
             error: function(xhr, status, errorThrown){
                 console.log("Server response (error) => " + xhr.responseText);
