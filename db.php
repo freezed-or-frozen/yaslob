@@ -125,14 +125,49 @@ class EbooksDB {
     }
 
     /**
-     * Get all ebooks
+     * Get the N last ebooks
+     * @param ebookNumber associated with the ebook
+     * @return ebooks array* 
      */
-    function getEbooks() {
+    function getLastEbooks($ebookNumber) {
+        // Prepare SQL request with parameters and execute it
+        $sql = "
+            SELECT *
+            FROM documents            
+            ORDER BY date DESC
+            LIMIT :ebookNumber;";        
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(":ebookNumber", $ebookNumber, SQLITE3_INTEGER);
+        $result = $stmt->execute();
+
+        // Create and return an associative array with SQL results
+        $ebooks = array();
+        while($res = $result->fetchArray(SQLITE3_ASSOC)) {
+            array_push($ebooks, $res);
+        }
+        return $ebooks;
+    }
+
+    /**
+     * Get all ebooks by tag
+     * @param tag associated with the ebook
+     * @return ebooks array
+     */
+    function getEbooksByTag($tagName) {
+        // Prepare SQL request with parameters and execute it
         $sql = "
             SELECT *
             FROM documents
-            ORDER BY date DESC;";
-        $result = $this->dbh->query($sql);
+            INNER JOIN associations
+            ON documents.id = associations.id_document
+            INNER JOIN tags
+            ON associations.id_tag = tags.id
+            WhERE tags.name LIKE :tagName;";        
+        $stmt = $this->dbh->prepare($sql);
+        $stmt->bindValue(":tagName", $tagName, SQLITE3_TEXT);
+        $result = $stmt->execute();
+
+        // Create and return an associative array with SQL results
         $ebooks = array();
         while($res = $result->fetchArray(SQLITE3_ASSOC)) {
             array_push($ebooks, $res);
@@ -160,6 +195,7 @@ class EbooksDB {
         $stmt->bindValue(":ebookId", $ebookId, SQLITE3_INTEGER);
         $result = $stmt->execute();
         
+        // Create and return an associative array with SQL results
         $tags = array();
         while($res = $result->fetchArray(SQLITE3_ASSOC)) {
             array_push($tags, $res["name"]);

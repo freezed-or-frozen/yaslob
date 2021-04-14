@@ -17,4 +17,7 @@ define("COVERS_PATH", "data/covers");
 // Path to ebook pdf
 define("EBOOKS_PATH", "data/ebooks");
 
+// Maximum number of ebooks in the front page
+define("MAX_EBOOKS_NUMBER", 5);
+
 ?>

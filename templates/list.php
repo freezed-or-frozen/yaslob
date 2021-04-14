@@ -48,7 +48,7 @@ include("header.php");
         // Tags associated
         echo "<p>";    
         foreach($ebook["tags"] as $tag) {
-            echo "<a href=\"index.php?by=tags&param={$tag}\" class=\"badge badge-info\">{$tag}</a>&nbsp;";
+            echo "<a href=\"index.php?action=list&tag={$tag}\" class=\"badge badge-info\">{$tag}</a>&nbsp;";
         }
         echo "</p>";
 
