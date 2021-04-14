@@ -4,5 +4,5 @@
  * 
  * @author David SALLÉ
  * @date April 2021
- * @licence MIT
+ * @license MIT
  */
