@@ -76,6 +76,7 @@ function uploadEbook() {
     jsonData["author"] = document.getElementById("author").value;
     jsonData["pages"] = document.getElementById("pages").value;
     jsonData["year"] = document.getElementById("year").value;
+    jsonData["nsfk"] = document.getElementById("nsfk").value;
     jsonData["description"] = document.getElementById("description").value;
     jsonData["tags"] = document.getElementById("tags").value;
     jsonData["cover"] = document.getElementById("pdf-canvas").toDataURL();
@@ -144,10 +145,11 @@ $("#jsonupload").on('click', function(event) {
  * To handle tags input with external library
  */
 $("#tags").tagsInput({
+    width: "auto",
     autocomplete_url: "http://127.0.0.1/yaslob/index.php?action=tags",
     autocomplete: {
         selectFirst: false,
-        width: '100px',
+        width: "100px",
         autoFill: true
     }
     /*

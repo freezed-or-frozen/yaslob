@@ -38,16 +38,22 @@ include("header.php");
             <input type="text" class="form-control" name="author" id="author" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-row">
+        <div class="form-group col-md-5">
             <label>Pages : </label>
             <input type="text" class="form-control" name="pages" id="pages" required>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-5">
             <label>Year : </label>
             <input type="text" class="form-control" name="year" id="year" required>
         </div>
 
+        <div class="form-group col-md-2">
+            <label>NSFK : </label>
+            <input type="checkbox" class="form-control" name="nsfk" id="nsfk">
+        </div>
+        </div>
         <div class="form-group">
             <label>Description : </label>
             <input type="text" class="form-control" name="description" id="description" required>
@@ -55,7 +61,7 @@ include("header.php");
 
         <div class="form-group">
             <label>Tags (comma separated) : </label>
-            <input type="text" class="form-control" value="cpp,php,python" name="tags" id="tags" data-role="tagsinput" required>
+            <input type="text" class="form-control" value="" name="tags" id="tags" data-role="tagsinput" required>
             
         </div>
 

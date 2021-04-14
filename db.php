@@ -34,12 +34,13 @@ class EbooksDB {
      * @param $year 
      * @param $pages 
      * @param $ebookName
+     * @param $nsfk
      */
-    function addNewEbook($title, $author, $description, $year, $pages, $ebookName) {
+    function addNewEbook($title, $author, $description, $year, $pages, $ebookName, $nsfk=0) {
         // Prepare SQL request with parameters
         $sql = "
-            INSERT INTO documents (title, author, description, year, pages, date, url)
-            VALUES (:title, :author, :description, :year, :pages, :date, :url);";
+            INSERT INTO documents (title, author, description, year, pages, date, url, nsfk)
+            VALUES (:title, :author, :description, :year, :pages, :date, :url, :nsfk);";
         $stmt = $this->dbh->prepare($sql);
         $stmt->bindValue(":title", $title, SQLITE3_TEXT);
         $stmt->bindValue(":author", $author, SQLITE3_TEXT);
@@ -48,6 +49,7 @@ class EbooksDB {
         $stmt->bindValue(":pages", $pages, SQLITE3_INTEGER);    
         $stmt->bindValue(":date", date("Y-m-d H:i:s"), SQLITE3_TEXT);
         $stmt->bindValue(":url", $ebookName, SQLITE3_TEXT);
+        $stmt->bindValue(":nsfk", $nsfk, SQLITE3_INTEGER);
 
         // Execute it and return the new ebook id
         $result = $stmt->execute();
