@@ -43,7 +43,9 @@ include("header.php");
         echo "<td>";
 
         // Description
-        echo "<p>{$ebook["description"]}</p>";
+        echo "<p>";
+        echo "<div class=\"alert alert-dark\" role=\"alert\">{$ebook["description"]}</div>";
+        echo "</p>";
 
         // Tags associated
         echo "<p>";    
