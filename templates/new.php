@@ -56,6 +56,7 @@ include("header.php");
         <div class="form-group">
             <label>Tags (comma separated) : </label>
             <input type="text" class="form-control" value="cpp,php,python" name="tags" id="tags" data-role="tagsinput" required>
+            
         </div>
 
         <div class="form-group">

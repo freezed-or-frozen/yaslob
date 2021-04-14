@@ -97,6 +97,23 @@ if ($action == "welcome") {
     }     
     include("templates/list.php");
 
+} else if ($action == "tags") {
+    //
+    // List all tags for autocomplete
+    //
+    // Get the "term" parameter sent by jQuery-Tags-Inputs library
+    $tags = NULL;
+    if (isset($_GET["term"])) {
+        $startwith = $_GET["term"];
+        $tags = $db->getTagsStartingWith($startwith);
+    } else {
+        $startwith = NULL;
+        $tags = $db->getAllTags();
+    }    
+    
+    header("Content-type:application/json;charset=utf-8");
+    echo json_encode($tags);
+
 } else {
     //
     // default action => home/welcome page

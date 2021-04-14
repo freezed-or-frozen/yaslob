@@ -164,6 +164,51 @@ class EbooksDB {
         }
         return $tags;
     }
+
+
+    /**
+     * Get all tags (for autocomplete)
+     * @return tags array of tags ["cpp", "php", "rust"]
+     */
+    function getAllTags() {        
+        // Prepare SQL request with parameters and execute it
+        $sql = "
+            SELECT *
+            FROM tags;";
+        $stmt = $this->dbh->prepare($sql);
+        $result = $stmt->execute();
+        
+        $tags = array();
+        while($res = $result->fetchArray(SQLITE3_ASSOC)) {
+            array_push($tags, [ "id" => $res["id"], "value" => $res["name"], "label" => $res["name"] ]);
+            //array_push($tags, $res["name"]);
+        }
+        return $tags;
+    }
+
+
+    /**
+     * Get tags starting with "XXX*" string for autocomplete
+     * @param startWith 
+     * @return tags array of tags ["cpp", "php", "rust"]
+     */
+    function getTagsStartingWith($startWith) {        
+        // Prepare SQL request with parameters and execute it
+        $sql = "
+            SELECT id, name
+            FROM tags            
+            WhERE name LIKE :startWith;";
+        $stmt = $this->dbh->prepare($sql);
+        $startWith .= "%";
+        $stmt->bindValue(":startWith", $startWith, SQLITE3_TEXT);
+        $result = $stmt->execute();
+        
+        $tags = array();
+        while($res = $result->fetchArray(SQLITE3_ASSOC)) {
+            array_push($tags, $res["name"]);
+        }
+        return $tags;
+    }
 }
 
 

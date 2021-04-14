@@ -140,5 +140,45 @@ $("#jsonupload").on('click', function(event) {
 });
 
 
+/**
+ * To handle tags input with external library
+ */
+$("#tags").tagsInput({
+    autocomplete_url: "http://127.0.0.1/yaslob/index.php?action=tags",
+    autocomplete: {
+        selectFirst: false,
+        width: '100px',
+        autoFill: true
+    }
+    /*
+    autocomplete_url: function(request, response) {
+        val = getvariablefield();
+        url = '/search_tags?variable_field=' + val + '&term=' + request.term;
+        $.get(url, function(data){
+            data = JSON.parse(data);
+            response(data);
+        });
+   }
+   */
+  //autocomplete_url: ["Pisa", "Rome", "Milan", "Florence", "New York", "Paris", "Berlin", "London", "Madrid"],
+  /*
+  "autocomplete_url": "",
+  "autocomplete": {
+      source: ["Pisa", "Rome", "Milan", "Florence"],
+    selectFirst:true,
+    width:'100px',
+    autoFill:true
+    }*/
+    //autocomplete_url: ["python", "php", "java"],
+    //interactive: true
+    /*
+    autocomplete: {        
+        selectFirst: true,
+        width: '100px',
+        autoFill: true
+    },
+    */
+    //autocomplete_url: ""
+});
 
 

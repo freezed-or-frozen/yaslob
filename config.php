@@ -16,4 +16,5 @@ define("COVERS_PATH", "data/covers");
 
 // Path to ebook pdf
 define("EBOOKS_PATH", "data/ebooks");
+
 ?>

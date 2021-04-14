@@ -19,7 +19,11 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet">    
 
+    
+    
     <!-- Custom styles for this template -->
     <link href="assets/css/custom.css" rel="stylesheet">  
 </head>
@@ -27,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">
-            :: EBOOKS ::
+            :: YASLOB ::
             <img src="assets/img/ebooks_logo.jpg" height="35px" />
         </a>
 

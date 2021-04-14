@@ -26,5 +26,7 @@ Download all files on your webserver.
 ## Credits
 External libraries used (thank you) :
   * [Bootstrap](https://getbootstrap.com/)
+  * [jQuery](https://jquery.com/)
   * [PDF.js](https://mozilla.github.io/pdf.js/)
+  * [jQuery Tags Input](http://xoxco.com/projects/code/tagsinput/)
 
