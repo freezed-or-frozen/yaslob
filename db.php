@@ -1,6 +1,6 @@
 <?php
 /**
- * YASLOB
+ * YASLOB : Yet Another Simple Library Of eBooks
  * Model file (M of MVC)
  * 
  * @author David SALLÉ

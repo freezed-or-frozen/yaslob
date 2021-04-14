@@ -1,5 +1,5 @@
 /**
- * YASLOB
+ * YASLOB : Yet Another Simple Library Of eBooks
  * Custom Javascript for the Views (V of MVC)
  * 
  * @author David SALLÉ

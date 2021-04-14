@@ -1,6 +1,6 @@
 <?php
 /**
- * YASLOB
+ * YASLOB : Yet Another Simple Library Of eBooks
  * Footer part of the View (V of MVC)
  * 
  * @author David SALLÉ

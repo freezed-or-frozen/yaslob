@@ -1,6 +1,6 @@
 <?php
 /**
- * YASLOB
+ * YASLOB : Yet Another Simple Library Of eBooks
  * Configuration file
  * 
  * @author David SALLÉ
