@@ -8,6 +8,10 @@
  * @license MIT
  */
 
+ 
+// Base URL
+define("BASE_URL", "http://127.0.0.1/yaslob");
+
 // Path to SQLite database
 define("DATABASE_PATH", "db/ebooks.sqlite");
 
@@ -19,5 +23,8 @@ define("EBOOKS_PATH", "data/ebooks");
 
 // Maximum number of ebooks in the front page
 define("MAX_EBOOKS_NUMBER", 5);
+
+// File size limit (in bytes)
+define("FILE_SIZE_LIMIT", 100000000);
 
 ?>

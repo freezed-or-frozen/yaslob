@@ -25,6 +25,11 @@
     
     <!-- Custom styles for this template -->
     <link href="assets/css/custom.css" rel="stylesheet">  
+
+    <!-- Pass PHP paramters to Javascript -->
+    <script>
+        var baseUrl = <?php echo BASE_URL; ?>
+    </script>
 </head>
 
 <body>

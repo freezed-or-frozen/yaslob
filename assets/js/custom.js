@@ -95,7 +95,7 @@ function uploadEbook() {
 
         // Send data
         $.ajax({
-            url: "http://127.0.0.1/yaslob/index.php?action=upload",
+            url: baseUrl + "/index.php?action=upload",
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -104,7 +104,7 @@ function uploadEbook() {
                 console.log("Server response (success) => " + response);
 
                 // Redirection
-                window.location.href = "http://127.0.0.1/yaslob/index.php?action=list";
+                window.location.href = baseUrl + "/index.php?action=list";
             },
             error: function(xhr, status, errorThrown){
                 console.log("Server response (error) => " + xhr.responseText);
@@ -146,7 +146,7 @@ $("#jsonupload").on('click', function(event) {
  */
 $("#tags").tagsInput({
     width: "auto",
-    autocomplete_url: "http://127.0.0.1/yaslob/index.php?action=tags",
+    autocomplete_url: baseUrl + "/index.php?action=tags",
     autocomplete: {
         selectFirst: false,
         width: "100px",
