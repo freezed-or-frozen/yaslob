@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ebooks>
+    <ebook>
+        <title>Open Models</title>
+        <author>Louis-David Benyayer</author>
+        <description>Les business models de l'économie ouverte</description>
+        <year>2015</year>
+        <pages>228</pages>
+        <date>2021-04-12 14:02:414</date>
+        <url>open-models</url>
+        <note>0</note>
+        <nsfk>0</nsfk>
+        <tags>
+            <tag>license</tag>
+            <tag>open-source</tag>
+        </tags>
+    </ebook>
+    <ebook>
+        <title>6 Pillars Of Creativity</title>
+        <author>Tom Fountainhead Geldschläger</author>
+        <description>Livre sur les piliers de la créativité</description>
+        <year>2020</year>
+        <pages>26</pages>
+        <date>2021-04-12 10:38:24</date>
+        <url>6-pillars-of-creativity</url>
+        <note>0</note>
+        <nsfk>0</nsfk>
+        <tags>
+            <tag>creativity</tag>
+            <tag>management</tag>
+        </tags>
+    </ebook>
+</ebooks>

@@ -26,18 +26,19 @@ function printToDebug($something) {
 // Unit test
 $db = new EbooksDB(DATABASE_PATH);
 
-/*
-$ebooks = $db->getEbooks();
-printToDebug($ebooks);
 
+$ebooks = $db->getLastEbooks(5);
+printToDebug($ebooks);
+/*
 $tags = $db->getTags(2);
 printToDebug($tags);
 
 
 $tagsAutoComplete = $db->getTagsStartingWith("pro");
 printToDebug($tagsAutoComplete);
-*/
+
 
 $ebooks = $db->getEbooksByTag("programming");
 printToDebug($ebooks);
+*/
 ?>

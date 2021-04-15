@@ -99,13 +99,13 @@ if ($action == "welcome") {
     } else {        
         $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
     }  
-    
+/*    
     // Get associated tags for each ebooks
     foreach($ebooks as &$ebook) {
         //array_push($tags, $db->getTags($ebook["id"]));
         $ebook["tags"] = $db->getTags($ebook["id"]);
     }     
-
+*/
     // Render template view
     include("templates/list.php");
 

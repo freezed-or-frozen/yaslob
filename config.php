@@ -13,7 +13,8 @@
 define("BASE_URL", "http://127.0.0.1/yaslob");
 
 // Path to SQLite database
-define("DATABASE_PATH", "db/ebooks.sqlite");
+//define("DATABASE_PATH", "db/ebooks.sqlite");
+define("DATABASE_PATH", "db/ebooks.xml");
 
 // Path to ebook cover images
 define("COVERS_PATH", "data/covers");
