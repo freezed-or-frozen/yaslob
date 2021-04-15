@@ -48,7 +48,7 @@ $result = $db->addNewEbook(
     "tchoupi-a-la-plage",
     0,
     0,
-    array("enfant", "tchoupi")
+    "enfant,tchoupi,histoire"
 );
 printToDebug($result);
 

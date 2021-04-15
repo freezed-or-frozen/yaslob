@@ -36,7 +36,7 @@ class EbooksDB {
      * @param $url
      * @param $nsfk
      */
-    function addNewEbook($title, $author, $description, $year, $pages, $url, $nsfk, $note, $tags) {
+    function addNewEbook($title, $author, $description, $year, $pages, $url, $nsfk, $note, $tagsList) {
         // Load XML database file
         $xml = simplexml_load_file($this->databasePath);
 
@@ -52,6 +52,7 @@ class EbooksDB {
         $ebookNode->addChild("note", $note);
 
         // New tags node with tag children nodes
+        $tags = explode(',', $tagsList);
         $tagsNode = $ebookNode->addChild("tags");
         foreach ($tags as $tag) {
             $tagsNode->addChild("tag", $tag);

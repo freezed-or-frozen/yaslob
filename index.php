@@ -72,11 +72,14 @@ if ($action == "welcome") {
         $ebook->{"description"},
         $ebook->{"year"},
         $ebook->{"pages"},    
-        $ebookName
+        $ebookName,         // url in database
+        $ebook->{"nsfk"},
+        $ebook->{"note"},
+        $ebook->{"tags"}
     );
 
     // Add tags associated to the ebook
-    $db->addTagsToEbook($ebookId, $ebook->{"tags"});
+    //$db->addTagsToEbook($ebookId, $ebook->{"tags"});
 
     // Prepare notification message
     $_SESSION["notification"] = "Upload of <strong>{$ebookName}.pdf</strong> is done";
