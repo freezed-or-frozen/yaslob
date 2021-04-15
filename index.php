@@ -136,7 +136,18 @@ if ($action == "welcome") {
     }    
     
     header("Content-type:application/json;charset=utf-8");
-    echo json_encode($tags);
+    
+    $tagsJson = "[";
+    $counter = 0;
+    foreach ($tags as $tag) {
+        $tagsJson .= "\"".$tag."\",";
+    }
+    $tagsJson = substr($tagsJson, 0, -1);
+    $tagsJson .= "]";
+    echo $tagsJson;
+    
+    
+    //echo json_encode($tags);
 
 } else {
     //
