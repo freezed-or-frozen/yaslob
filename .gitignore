@@ -2,4 +2,5 @@
 deployment.sh
 
 # Ebooks and covers files
-data
+data/ebooks
+data/covers
