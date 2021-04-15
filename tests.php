@@ -37,6 +37,21 @@ printToDebug($tags);
 echo "<h1>getTagsStartingWith</h1>";
 $tagsAutoComplete = $db->getTagsStartingWith("cr");
 printToDebug($tagsAutoComplete);
+
+echo "<h1>addNewEbook</h1>";
+$result = $db->addNewEbook(
+    "Tchoupi à la plage",
+    "Thierry BIDULE",
+    "Un super bouqin",
+    "2000",
+    11,
+    "tchoupi-a-la-plage",
+    0,
+    0,
+    array("enfant", "tchoupi")
+);
+printToDebug($result);
+
 /*
 $tags = $db->getTags(2);
 printToDebug($tags);

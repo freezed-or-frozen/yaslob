@@ -33,22 +33,34 @@ class EbooksDB {
      * @param $description
      * @param $year 
      * @param $pages 
-     * @param $ebookName
+     * @param $url
      * @param $nsfk
      */
-    function addNewEbook($title, $author, $description, $year, $pages, $ebookName, $nsfk=0) {
+    function addNewEbook($title, $author, $description, $year, $pages, $url, $nsfk, $note, $tags) {
+        // Load XML database file
+        $xml = simplexml_load_file($this->databasePath);
 
+        // New ebook child node
+        $ebookNode = $xml->addChild("ebook");
+        $ebookNode->addChild("title", $title);
+        $ebookNode->addChild("author", $author);
+        $ebookNode->addChild("description", $description);
+        $ebookNode->addChild("year", $year);
+        $ebookNode->addChild("pages", $pages);
+        $ebookNode->addChild("url", $url);
+        $ebookNode->addChild("nsfk", $nsfk);
+        $ebookNode->addChild("note", $note);
+
+        // New tags node with tag children nodes
+        $tagsNode = $ebookNode->addChild("tags");
+        foreach ($tags as $tag) {
+            $tagsNode->addChild("tag", $tag);
+        }
+
+        // Save XML database file
+        $xml->asXML($this->databasePath);
     }
 
-
-    /**
-     * Add tags associated to an added ebook
-     * @param ebookId 
-     * @param tags string of tags like "cpp,php,rust"
-     */
-    function addTagsToEbook($ebookId, $tags) {
-
-    }
 
     /**
      * Get the N last ebooks
