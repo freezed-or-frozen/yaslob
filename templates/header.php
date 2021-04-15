@@ -28,7 +28,7 @@
 
     <!-- Pass PHP paramters to Javascript -->
     <script>
-        var baseUrl = <?php echo BASE_URL; ?>
+        var baseUrl = "<?php echo BASE_URL; ?>";
     </script>
 </head>
 

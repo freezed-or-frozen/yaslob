@@ -26,9 +26,17 @@ function printToDebug($something) {
 // Unit test
 $db = new EbooksDB(DATABASE_PATH);
 
-
+echo "<h1>getLastEbooks</h1>";
 $ebooks = $db->getLastEbooks(5);
 printToDebug($ebooks);
+
+echo "<h1>getAllTags</h1>";
+$tags = $db->getAllTags();
+printToDebug($tags);
+
+echo "<h1>getTagsStartingWith</h1>";
+$tagsAutoComplete = $db->getTagsStartingWith("cr");
+printToDebug($tagsAutoComplete);
 /*
 $tags = $db->getTags(2);
 printToDebug($tags);

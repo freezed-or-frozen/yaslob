@@ -121,21 +121,28 @@ class EbooksDB {
 
 
     /**
-     * Get all tags associated to a specific ebook
-     * @param ebookId 
-     * @return tags array of tags ["cpp", "php", "rust"]
-     */
-    function getTags($ebookId) {        
-
-    }
-
-
-    /**
      * Get all tags (for autocomplete)
      * @return tags array of tags ["cpp", "php", "rust"]
      */
     function getAllTags() {        
-   
+        $xml = simplexml_load_file($this->databasePath);
+
+        $tags = array();       
+        foreach ($xml->ebook as $ebookNode) {
+            // Check if tag is associated to this ebook            
+            foreach ($ebookNode->tags->tag as $tagNode) {
+                $isTagAlreadyAdded = FALSE;
+                foreach ($tags as $tag) {
+                    if ( (string)$tagNode == $tag) {
+                        $isTagAlreadyAdded = TRUE;
+                    }
+                }                
+                if ($isTagAlreadyAdded == FALSE) {
+                    array_push($tags, (string)$tagNode);
+                }
+            }           
+        }
+        return $tags;
     }
 
 
@@ -144,8 +151,27 @@ class EbooksDB {
      * @param startWith 
      * @return tags array of tags ["cpp", "php", "rust"]
      */
-    function getTagsStartingWith($startWith) {        
+    function getTagsStartingWith($startWith) {
+        $xml = simplexml_load_file($this->databasePath);
 
+        $tags = array();       
+        foreach ($xml->ebook as $ebookNode) {
+            // Check if tag is associated to this ebook            
+            foreach ($ebookNode->tags->tag as $tagNode) {
+                $isTagAlreadyAdded = FALSE;
+                foreach ($tags as $tag) {
+                    if ( (string)$tagNode == $tag) {
+                        $isTagAlreadyAdded = TRUE;
+                    }
+                }                
+                if ($isTagAlreadyAdded == FALSE) {
+                    if (substr((string)$tagNode, 0, strlen($startWith)) === $startWith) { 
+                        array_push($tags, (string)$tagNode);
+                    }
+                }
+            }           
+        }
+        return $tags;
     }
 }
 
