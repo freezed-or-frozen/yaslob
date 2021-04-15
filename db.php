@@ -47,6 +47,7 @@ class EbooksDB {
         $ebookNode->addChild("description", $description);
         $ebookNode->addChild("year", $year);
         $ebookNode->addChild("pages", $pages);
+        $ebookNode->addChild("date", date("Y-m-d H:i:s"));
         $ebookNode->addChild("url", $url);
         $ebookNode->addChild("nsfk", $nsfk);
         $ebookNode->addChild("note", $note);

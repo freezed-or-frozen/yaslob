@@ -39,14 +39,21 @@ include("header.php");
         </div>
 
         <div class="form-row">
-        <div class="form-group col-md-5">
+        <div class="form-group col-md-3">
             <label>Pages : </label>
             <input type="text" class="form-control" name="pages" id="pages" required>
         </div>
 
-        <div class="form-group col-md-5">
+        <div class="form-group col-md-3">
             <label>Year : </label>
             <input type="text" class="form-control" name="year" id="year" required>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label>Note : </label>
+            <div class="form-control" id="note">
+                <i id="star1" class="bi bi-star"></i><i id="star2" class="bi bi-star"></i><i id="star3" class="bi bi-star"></i><i id="star4" class="bi bi-star"></i><i id="star5" class="bi bi-star"></i>                
+            </div>
         </div>
 
         <div class="form-group col-md-2">

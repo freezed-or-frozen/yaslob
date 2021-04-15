@@ -13,6 +13,8 @@ let url_fichier = "";
 // Octets du fichier PDF à téléverser
 let pdf_octets = null;
 
+// Ebook note (with stars)
+let ebookNote = 0;
 
 /**
  * Get cover image and informations (title, author, pages...) from PDF
@@ -76,8 +78,9 @@ function uploadEbook() {
     jsonData["author"] = document.getElementById("author").value;
     jsonData["pages"] = document.getElementById("pages").value;
     jsonData["year"] = document.getElementById("year").value;
-    jsonData["nsfk"] = document.getElementById("nsfk").value;
+    jsonData["nsfk"] = document.getElementById("nsfk").checked;
     jsonData["description"] = document.getElementById("description").value;
+    jsonData["note"] = ebookNote;
     jsonData["tags"] = document.getElementById("tags").value;
     jsonData["cover"] = document.getElementById("pdf-canvas").toDataURL();
 
@@ -152,35 +155,65 @@ $("#tags").tagsInput({
         width: "100px",
         autoFill: true
     }
-    /*
-    autocomplete_url: function(request, response) {
-        val = getvariablefield();
-        url = '/search_tags?variable_field=' + val + '&term=' + request.term;
-        $.get(url, function(data){
-            data = JSON.parse(data);
-            response(data);
-        });
-   }
-   */
-  //autocomplete_url: ["Pisa", "Rome", "Milan", "Florence", "New York", "Paris", "Berlin", "London", "Madrid"],
-  /*
-  "autocomplete_url": "",
-  "autocomplete": {
-      source: ["Pisa", "Rome", "Milan", "Florence"],
-    selectFirst:true,
-    width:'100px',
-    autoFill:true
-    }*/
-    //autocomplete_url: ["python", "php", "java"],
-    //interactive: true
-    /*
-    autocomplete: {        
-        selectFirst: true,
-        width: '100px',
-        autoFill: true
-    },
-    */
-    //autocomplete_url: ""
 });
 
 
+/**
+ * When clicking on the note star
+ */
+$("#star1").on('click', function(event) {
+    ebookNote = 1;
+    $("#star1").attr("class", "bi bi-star-fill");
+    $("#star2").attr("class", "bi bi-star");
+    $("#star3").attr("class", "bi bi-star");
+    $("#star4").attr("class", "bi bi-star");
+    $("#star5").attr("class", "bi bi-star");
+});
+
+/**
+ * When clicking on the note star
+ */
+$("#star2").on('click', function(event) {
+    ebookNote = 2;
+    $("#star1").attr("class", "bi bi-star-fill");
+    $("#star2").attr("class", "bi bi-star-fill");
+    $("#star3").attr("class", "bi bi-star");
+    $("#star4").attr("class", "bi bi-star");
+    $("#star5").attr("class", "bi bi-star");
+});
+
+/**
+ * When clicking on the note star
+ */
+$("#star3").on('click', function(event) {
+    ebookNote = 3;
+    $("#star1").attr("class", "bi bi-star-fill");
+    $("#star2").attr("class", "bi bi-star-fill");
+    $("#star3").attr("class", "bi bi-star-fill");
+    $("#star4").attr("class", "bi bi-star");
+    $("#star5").attr("class", "bi bi-star");
+});
+
+/**
+ * When clicking on the note star
+ */
+$("#star4").on('click', function(event) {
+    ebookNote = 4;
+    $("#star1").attr("class", "bi bi-star-fill");
+    $("#star2").attr("class", "bi bi-star-fill");
+    $("#star3").attr("class", "bi bi-star-fill");
+    $("#star4").attr("class", "bi bi-star-fill");
+    $("#star5").attr("class", "bi bi-star");
+});
+
+/**
+ * When clicking on the note star
+ */
+$("#star5").on('click', function(event) {
+    ebookNote = 5;
+    $("#star1").attr("class", "bi bi-star-fill");
+    $("#star2").attr("class", "bi bi-star-fill");
+    $("#star3").attr("class", "bi bi-star-fill");
+    $("#star4").attr("class", "bi bi-star-fill");
+    $("#star5").attr("class", "bi bi-star-fill");
+});

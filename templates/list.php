@@ -38,6 +38,23 @@ include("header.php");
         echo "<li>{$ebook["year"]}</li>";
         echo "<li>{$ebook["pages"]}p</li>";
         echo "<li>{$ebook["date"]}</li>";
+        echo "<li>";
+        if ($ebook["note"] == 0) {
+            echo "<i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i>";
+        } else if ($ebook["note"] == 1) {
+            echo "<i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i>";
+        } else if ($ebook["note"] == 2) {
+            echo "<i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i>";
+        } else if ($ebook["note"] == 3) {
+            echo "<i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i>";
+        } else if ($ebook["note"] == 4) {
+            echo "<i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star\"></i>";
+        } else if ($ebook["note"] == 5) {
+            echo "<i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i><i class=\"bi bi-star-fill\"></i>";
+        } else {
+            echo "<i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i><i class=\"bi bi-star\"></i>";
+        }
+        echo "</li>";
         echo "</ul>";
         echo "</td>";
         echo "<td>";
