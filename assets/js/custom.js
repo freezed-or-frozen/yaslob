@@ -100,9 +100,19 @@ function uploadEbook() {
         $.ajax({
             url: baseUrl + "/index.php?action=upload",
             type: "POST",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify(jsonData),
+            //contentType: "application/json; charset=utf-8",
+            //dataType: "json",
+            data: {
+                "title": jsonData["title"],
+                "author": jsonData["author"],
+                "pages": jsonData["pages"],
+                "year": jsonData["year"],
+                "nsfk": jsonData["nsfk"],
+                "description": jsonData["description"],
+                "note": jsonData["note"],
+                "tags": jsonData["tags"],
+                "cover": jsonData["cover"]
+            },
             success: function (response) {
                 console.log("Server response (success) => " + response);
 

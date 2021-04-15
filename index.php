@@ -44,38 +44,49 @@ if ($action == "welcome") {
     //
 
     // Get JSON data and decode
-    $jsonData = file_get_contents("php://input");
-    $ebook = json_decode($jsonData);
+    //$jsonData = file_get_contents("php://input");
+    //$ebook = json_decode($jsonData);
     //var_dump($jsonData);
     //var_dump($ebook);   
 
-    // Extract title and slugify it
-    $titre = $ebook->{"title"};
+    // Get POST data
+    $title = $_POST["title"];
+    $author = $_POST["author"];
+    $description = $_POST["description"];
+    $year = $_POST["year"];
+    $pages = $_POST["pages"];
+    $nsfk = $_POST["nsfk"];
+    $note = $_POST["note"];
+    $tags = $_POST["tags"];
+    $cover = $_POST["cover"];
+    $pdf = $_POST["data"];
+
+    // Slugify title to use in URL after
     $ebookName = slugify($titre);
 
     // Get cover image in base64 ans save it as PNG
     $coverData = base64_decode(
-    preg_replace('#^data:image/png;base64,#i', '', $ebook->{"cover"})
+    preg_replace('#^data:image/png;base64,#i', '', $cover)
     );
     file_put_contents(COVERS_PATH."/{$ebookName}.png", $coverData);
 
     // Get ebook in base64 and save it as PDF
     $pdfData = base64_decode(
-    preg_replace('#^data:application/pdf;base64,#i', '', $ebook->{"pdf"})
+    preg_replace('#^data:application/pdf;base64,#i', '', $pdf)
     );
     file_put_contents(EBOOKS_PATH."/{$ebookName}.pdf", $pdfData);
 
     // Add a new ebook in the database
     $ebookId = $db->addNewEbook(
-        $ebook->{"title"},
-        $ebook->{"author"},
-        $ebook->{"description"},
-        $ebook->{"year"},
-        $ebook->{"pages"},    
+        $title,
+        $author,
+        $description,
+        $year,
+        $pages,    
         $ebookName,         // url in database
-        $ebook->{"nsfk"},
-        $ebook->{"note"},
-        $ebook->{"tags"}
+        $nsfk,
+        $note,
+        $tags
     );
 
     // Add tags associated to the ebook
@@ -84,10 +95,8 @@ if ($action == "welcome") {
     // Prepare notification message
     $_SESSION["notification"] = "Upload of <strong>{$ebookName}.pdf</strong> is done";
 
-    // Finally send JSON answer
-    header("Content-type:application/json;charset=utf-8");
-    $response = [ "ebook" => $ebookName, "status" => "OK" ];
-    echo json_encode($response);
+    // Finally send answer    
+    echo "OK";
 
 } else if ($action == "list") {
     //

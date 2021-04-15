@@ -35,8 +35,7 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="#">
-            :: YASLOB ::
-            <img src="assets/img/ebooks_logo.jpg" height="35px" />
+            :: YASLOB ::            
         </a>
 
         <ul class="navbar-nav mr-auto">

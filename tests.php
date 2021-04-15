@@ -52,6 +52,11 @@ $result = $db->addNewEbook(
 );
 printToDebug($result);
 
+
+$str1 = "cpp";
+$str2 = "cpp,python";
+var_dump(explode(",", $str1));
+var_dump(explode(",", $str2));
 /*
 $tags = $db->getTags(2);
 printToDebug($tags);

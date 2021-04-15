@@ -35,8 +35,7 @@ include("header.php");
         echo "<a href=\"".EBOOKS_PATH."/{$ebook["url"]}.pdf\">{$ebook["title"]}</a>";
         echo "</li>";
         echo "<li>{$ebook["author"]}</li>";
-        echo "<li>{$ebook["year"]}</li>";
-        echo "<li>{$ebook["pages"]}p</li>";
+        echo "<li>{$ebook["year"]} - {$ebook["pages"]}p</li>";
         echo "<li>{$ebook["date"]}</li>";
         echo "<li>";
         if ($ebook["note"] == 0) {
