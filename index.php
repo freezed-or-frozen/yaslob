@@ -43,12 +43,6 @@ if ($action == "welcome") {
     // upload ebook action
     //
 
-    // Get JSON data and decode
-    //$jsonData = file_get_contents("php://input");
-    //$ebook = json_decode($jsonData);
-    //var_dump($jsonData);
-    //var_dump($ebook);   
-
     // Get POST data
     $title = $_POST["title"];
     $author = $_POST["author"];
@@ -89,9 +83,6 @@ if ($action == "welcome") {
         $tags
     );
 
-    // Add tags associated to the ebook
-    //$db->addTagsToEbook($ebookId, $ebook->{"tags"});
-
     // Prepare notification message
     $_SESSION["notification"] = "Upload of <strong>{$ebookName}.pdf</strong> is done";
 
@@ -111,13 +102,7 @@ if ($action == "welcome") {
     } else {        
         $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
     }  
-/*    
-    // Get associated tags for each ebooks
-    foreach($ebooks as &$ebook) {
-        //array_push($tags, $db->getTags($ebook["id"]));
-        $ebook["tags"] = $db->getTags($ebook["id"]);
-    }     
-*/
+
     // Render template view
     include("templates/list.php");
 
@@ -135,8 +120,10 @@ if ($action == "welcome") {
         $tags = $db->getAllTags();
     }    
     
+    // Response should be in JSON
     header("Content-type:application/json;charset=utf-8");
     
+    // Build the JSON array manually because json_encode() is unknown in PHP 5.1.3
     $tagsJson = "[";
     $counter = 0;
     foreach ($tags as $tag) {
@@ -145,9 +132,6 @@ if ($action == "welcome") {
     $tagsJson = substr($tagsJson, 0, -1);
     $tagsJson .= "]";
     echo $tagsJson;
-    
-    
-    //echo json_encode($tags);
 
 } else {
     //
