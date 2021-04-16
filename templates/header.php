@@ -30,6 +30,9 @@
     <script>
         var baseUrl = "<?php echo BASE_URL; ?>";
     </script>
+
+    <!-- Precise where to find favicon --> 
+    <link rel="shortcut icon" href="<?php echo BASE_URL ?>/assets/img/favicon.ico" />
 </head>
 
 <body>
