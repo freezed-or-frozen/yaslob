@@ -65,7 +65,6 @@ Data format in XML file :
 </ebooks>
 ```
 
-
 ## Credits
 External libraries used (thank you) :
   * [Bootstrap](https://getbootstrap.com/)
