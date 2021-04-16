@@ -56,7 +56,7 @@ if ($action == "welcome") {
     $pdf = $_POST["data"];
 
     // Slugify title to use in URL after
-    $ebookName = slugify($titre);
+    $ebookName = slugify($title);
 
     // Get cover image in base64 ans save it as PNG
     $coverData = base64_decode(

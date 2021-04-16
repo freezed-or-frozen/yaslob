@@ -35,6 +35,8 @@ class EbooksDB {
      * @param $pages 
      * @param $url
      * @param $nsfk
+     * @param $note
+     * @param $tagsList
      */
     function addNewEbook($title, $author, $description, $year, $pages, $url, $nsfk, $note, $tagsList) {
         // Load XML database file
