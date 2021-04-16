@@ -11,7 +11,8 @@ Constraints :
   * [X] can be installed on a small server (PHP 5.1.6)
   * [X] does not need lots of dependencies on server side (cannot install anything, because of low space left)
   * [X] doesn't need a database, only an XML file for storing data
-  * [X] doesn't need json_encode() and json_decode() functions (PHP 5.1.6) 
+  * [X] doesn't need json_encode() and json_decode() functions (PHP 5.1.6)
+  * [X] looks professional and responsive design 
   * [X] can be configured easilly (simple file)
   * [X] follows MVC architecture 
 
