@@ -41,19 +41,18 @@ Data format in XML file :
 <?xml version="1.0" encoding="UTF-8"?>
 <ebooks>
   <ebook>
-    <title>6 Pillars Of Creativity</title>
-    <author>Tom Fountainhead Geldschläger</author>
-    <description>Livre sur les piliers de la créativité</description>
-    <year>2020</year>
-    <pages>26</pages>
-    <date>2021-04-12 10:38:24</date>
-    <url>6-pillars-of-creativity</url>
+    <title>CONTES MERVEILLEUX - Tome I</title>
+    <author>Jakob et Wilhelm Grimm</author>
+    <description>zetzetzet</description>
+    <year>2005</year>
+    <pages>197</pages>
+    <date>2021-04-16 09:21:09</date>
+    <url>contes-merveilleux-tome-i</url>
+    <nsfk>false</nsfk>
     <note>0</note>
-    <nsfk>0</nsfk>
     <tags>
-      <tag>creativity</tag>
-      <tag>management</tag>
-      <tag>crooner</tag>
+      <tag>contes</tag>
+      <tag>merveilleux</tag>
     </tags>
   </ebook>
 </ebooks>
