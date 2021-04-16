@@ -40,7 +40,9 @@ Requirements :
 2 - The **data** folder must be writable by your server. For example :
 ```
 chown -R www-data:www-data data
+chmod 755 data/db/ebooks.xml
 ```
+And depending on the security level you want to reach, **data** folder should be placed outside the root folder of the webserver.
 
 3 - Modify **BASE_URL** parameter in ```config.php```.
 

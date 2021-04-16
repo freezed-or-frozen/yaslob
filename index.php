@@ -53,7 +53,7 @@ if ($action == "welcome") {
     $note = $_POST["note"];
     $tags = $_POST["tags"];
     $cover = $_POST["cover"];
-    $pdf = $_POST["data"];
+    $pdf = $_POST["pdf"];
 
     // Slugify title to use in URL after
     $ebookName = slugify($title);

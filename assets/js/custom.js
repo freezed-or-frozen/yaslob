@@ -111,7 +111,8 @@ function uploadEbook() {
                 "description": jsonData["description"],
                 "note": jsonData["note"],
                 "tags": jsonData["tags"],
-                "cover": jsonData["cover"]
+                "cover": jsonData["cover"],
+                "pdf": jsonData["pdf"]
             },
             success: function (response) {
                 console.log("Server response (success) => " + response);
