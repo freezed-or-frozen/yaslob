@@ -30,12 +30,19 @@ if ($action == "welcome") {
     //
     // home/welcome action 
     //
+
+    // Render template view
     include("templates/home.php");
 
 } else if ($action == "new") {
     //
     // new ebook action
     //
+
+    // Get the maximum size one can upload with POST method
+    $postMaxSize = (int)(ini_get('post_max_size'));
+
+    // Render template view
     include("templates/new.php");
 
 } else if ($action == "upload") {
@@ -133,10 +140,24 @@ if ($action == "welcome") {
     $tagsJson .= "]";
     echo $tagsJson;
 
+} else if ($action == "search") {
+    //
+    // List all tags for 
+    //
+
+    // Search all tags in database
+    $tags = $db->getAllTags();
+    sort($tags);
+
+    // Render template view
+    include("templates/search.php");
+
 } else {
     //
     // default action => home/welcome page
     //
+
+    // Render template view
     include("templates/home.php");
 }
 

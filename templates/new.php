@@ -24,7 +24,7 @@ include("header.php");
 
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label>Ebook to upload (PDF format only) : </label>
+            <label>Ebook to upload (PDF format only and size < <?php echo $postMaxSize; ?>Mb) : </label><br />
             <input type="file" id="file-to-upload" name="file-to-upload" value="Select PDF" />
         </div>
 
