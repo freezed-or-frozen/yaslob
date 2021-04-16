@@ -49,6 +49,9 @@
                 <a class="nav-link" href="index.php?action=list">Ebooks</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="index.php?action=search">Search</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?action=new">New</a>
             </li>
         </ul>

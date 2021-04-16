@@ -106,6 +106,9 @@ if ($action == "welcome") {
     if (isset($_GET["tag"])) {
         $tagName = $_GET["tag"];
         $ebooks = $db->getEbooksByTag($tagName);
+    } else if (isset($_GET["word"])) {
+        $word = $_GET["word"];
+        $ebooks = $db->getEbooksByWord($word);
     } else {        
         $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
     }  

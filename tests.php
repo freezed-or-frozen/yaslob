@@ -72,6 +72,7 @@ $ebooks = $db->getEbooksByTag("programming");
 printToDebug($ebooks);
 */
 
+/*
 $max_upload = (int)(ini_get('upload_max_filesize'));
 $max_post = (int)(ini_get('post_max_size'));
 $memory_limit = (int)(ini_get('memory_limit'));
@@ -80,5 +81,9 @@ echo "upload_max_filesize => ".$max_upload."<br />";
 echo "post_max_size => ".$max_post."<br />";
 echo "memory_limit => ".$memory_limit."<br />";
 echo "upload_mb => ".$upload_mb."<br />";
+*/
+
+$ebooks = $db->getEbooksByWord("grimm");
+printToDebug($ebooks);
 
 ?>

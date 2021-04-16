@@ -137,6 +137,56 @@ class EbooksDB {
 
 
     /**
+     * Get all ebooks by tag
+     * @param word searched in title, author and description
+     * @return ebooks array
+     */
+    function getEbooksByWord($word) {
+        $xml = simplexml_load_file($this->databasePath);
+
+        $ebooks = array();       
+        foreach ($xml->ebook as $ebookNode) {
+            // Init
+            $wordFound = FALSE;
+            $title = strtolower((string)$ebookNode->title);
+            $author = strtolower((string)$ebookNode->author);
+            $description = strtolower((string)$ebookNode->description);
+
+            // Check if word is found in the title
+            if (strpos($title, $word) !== false) {
+                $wordFound = TRUE;
+            }
+            if (strpos($author, $word) !== false) {
+                $wordFound = TRUE;
+            }
+            if (strpos($description, $word) !== false) {
+                $wordFound = TRUE;
+            }
+            
+            // If true, than add ebook to the list and return
+            if ($wordFound == TRUE) {
+                $ebook = array();
+                $ebook["title"] = (string)$ebookNode->title;
+                $ebook["author"] = (string)$ebookNode->author;
+                $ebook["description"] = (string)$ebookNode->description;
+                $ebook["year"] = (int)$ebookNode->year;
+                $ebook["pages"] = (int)$ebookNode->pages;
+                $ebook["date"] = (int)$ebookNode->date;
+                $ebook["url"] = (string)$ebookNode->url;
+                $ebook["nsfk"] = (int)$ebookNode->nsfk;
+                $ebook["note"] = (int)$ebookNode->note;
+                $ebook["tags"] = array();
+                foreach ($ebookNode->tags->tag as $tagNode) {
+                    array_push($ebook["tags"], (string)$tagNode);
+                }
+                array_push($ebooks, $ebook);
+            }
+        }
+        return $ebooks;
+    }
+    
+
+    /**
      * Get all tags (for autocomplete)
      * @return tags array of tags ["cpp", "php", "rust"]
      */
