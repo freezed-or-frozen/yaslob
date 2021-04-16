@@ -22,7 +22,7 @@ Requirements :
   * [X] add a description, a note by clicking on stars
   * [X] add/remove tags easily (with autocomplete)
   * [X] list ebooks by date (last 10 added ebooks for example)
-  * [ ] search ebooks by tags, date, author, title...
+  * [X] search ebooks by tags and by word in title, author or description
   * [ ] modify or delete an uploaded ebook
   * [ ] protect add/edit/delete actions with authentication 
   * [ ] protect access to some ebooks (Not Safe For Kids)
