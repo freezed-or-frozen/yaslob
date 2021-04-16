@@ -35,12 +35,15 @@ Requirements :
 
 
 ## Installation
-Download all files on your webserver.
+1 - Download all files on your webserver.
 
-The **data** folder must be writable by your server. For example :
+2 - The **data** folder must be writable by your server. For example :
 ```
 chown -R www-data:www-data data
 ```
+
+3 - Modify **BASE_URL** parameter in ```config.php```.
+
 
 ## Database
 Data format in XML file :
