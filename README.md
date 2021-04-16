@@ -44,7 +44,11 @@ chmod 755 data/db/ebooks.xml
 ```
 And depending on the security level you want to reach, **data** folder should be placed outside the root folder of the webserver.
 
-3 - Modify **BASE_URL** parameter in ```config.php```.
+3 - Modify **BASE_URL** parameter in ```config.php```. For example :
+```php
+// Base URL
+define("BASE_URL", "http://1.2.3.4/yaslob");
+```
 
 
 ## Database
