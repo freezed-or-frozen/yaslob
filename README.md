@@ -27,6 +27,12 @@ Requirements :
   * [ ] protect access to some ebooks (Not Safe For Kids)
 
 
+## Screenshots
+| Add an ebook                 |  List ebooks                    |
+:-----------------------------:|:--------------------------------:
+![](screenshots/add_ebook.png) | ![](screenshots/list_ebooks.png)
+
+
 ## Installation
 Download all files on your webserver.
 
@@ -43,7 +49,7 @@ Data format in XML file :
   <ebook>
     <title>CONTES MERVEILLEUX - Tome I</title>
     <author>Jakob et Wilhelm Grimm</author>
-    <description>zetzetzet</description>
+    <description>Premier tome des célèbres contes des frères Grimm</description>
     <year>2005</year>
     <pages>197</pages>
     <date>2021-04-16 09:21:09</date>
