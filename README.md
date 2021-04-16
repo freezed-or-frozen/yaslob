@@ -6,20 +6,24 @@ I was searching a tool to handle my ebooks stored on small server (Netgear Stora
 
 
 ## Goals
-So YASLOB : Yet Another Simple Library Of eBooks
-Requirements, **yaslob** :
+So **YASLOB** : Yet Another Simple Library Of eBooks
+Constraints :
   * [X] can be installed on a small server (PHP 5.1.6)
   * [X] does not need lots of dependencies on server side (cannot install anything, because of low space left)
-  * [X] allows me to upload a new ebook (in PDF format only)
-  * [X] gets automatically : cover image, title, author, year, number of pages
-  * [X] allows me to add a description, some tags to describe the ebook, a note
-  * [X] uses autocomplete for tags input
-  * [ ] offers to search ebooks by tags, date, author, title...
-  * [ ] allows me to modify or delete an uploaded ebook
+  * [X] doesn't need a database, only an XML file for storing data
+  * [X] doesn't need json_encode() and json_decode() functions (PHP 5.1.6) 
   * [X] can be configured easilly (simple file)
   * [X] follows MVC architecture 
-  * [X] doesn't need a database, only an XML file for storing data
-  * [X] doesn't need json_encode() and json_decode() functions (PHP 5.1.6)
+
+Requirements : 
+  * [X] upload a new ebook (in PDF format only)
+  * [X] gets automatically : cover image, title, author, year, number of pages
+  * [X] add a description, a note by clicking on stars
+  * [X] add/remove tags easily (with autocomplete)
+  * [X] list ebooks by date (last 10 added ebooks for example)
+  * [ ] search ebooks by tags, date, author, title...
+  * [ ] modify or delete an uploaded ebook
+  * [ ] protect add/edit/delete actions with authentication 
   * [ ] protect access to some ebooks (Not Safe For Kids)
 
 
