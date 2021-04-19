@@ -27,4 +27,7 @@ define("MAX_EBOOKS_NUMBER", 5);
 // File size limit (in bytes)
 define("FILE_SIZE_LIMIT", 100000000);
 
+// Admin credentials
+define("ADMIN_LOGIN", "admin");
+define("ADMIN_PASSWORD", "p4ssw0rd");
 ?>

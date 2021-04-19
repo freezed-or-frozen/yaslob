@@ -52,8 +52,24 @@
                 <a class="nav-link" href="index.php?action=search">Search</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=new">New</a>
+                <a class="nav-link" href="index.php?action=adminform">Administration</a>
             </li>
+            <!-- If admin is authenticated... -->
+            <?php if ( (isset($_SESSION["authentication"])) && ($_SESSION["authentication"] == 1) ) : ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?action=new">New</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php?action=modify">Modify</a>
+                </li>
+
+                <!-- Disconnect button -->
+                <form action="index.php" method="GET">
+                    <input type="hidden" name="action" value="signout" />
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Disconnect</button>
+                </form>
+            <?php endif; ?>
+            
         </ul>
         
     </nav>

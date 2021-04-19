@@ -8,6 +8,12 @@
  * @license MIT
  */
 
+ // If session not active...
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    // ...then we start one
+    session_start();
+}
+
 // Include configuration and database
 include("config.php");
 include("db.php");
@@ -23,6 +29,34 @@ if (isset($_GET["action"])) {
 
 // Create database object
 $db = new EbooksDB(DATABASE_PATH);
+
+/*
+// Check if user is authenticated
+if ( (isset($_SESSION["authentication"]) == FALSE) || ($_SESSION["authentication"] == 0) ) {
+
+    // Does he want to anthenticate ?
+    if ($_POST["action"] == "authentication") {
+
+        // If so, check login/password
+        if (    ($_POST["login"] == ADMIN_LOGIN) &&
+                ($_POST["password"] == ADMIN_PASSWORD) ) {
+
+            // Memorize that he is authenticated
+            $_SESSION["authentication"] = 1;
+
+            // Redirection thru the home page            
+            include("templates/home.php");
+        }
+        else {
+            // Redirection thru login form
+            include("templates/authentication.php");
+        }
+    } else {
+        // Redirection thru login form
+        include("templates/authentication.php");
+    }
+} else {
+*/
 
 
 // Router : choose action to do
@@ -155,6 +189,42 @@ if ($action == "welcome") {
     // Render template view
     include("templates/search.php");
 
+} else if ($action == "adminform") {
+    //
+    // Authentication form
+    // 
+
+    // Render template view
+    include("templates/authentication.php");
+} else if ($action == "signin") {
+    //
+    // Sign in
+    //
+
+    if (($_GET["login"] == ADMIN_LOGIN) && ($_GET["password"] == ADMIN_PASSWORD)) {
+        // Mémorisation de l'authentification pour la suite
+        $_SESSION["authentication"] = 1;
+
+        // Render template view
+        include("templates/home.php");
+    }
+} else if ($action == "signout") {
+    //
+    // Sign out
+    //
+
+    // Empty $_SESSION variable
+    unset($_SESSION);
+
+    // Destroy session variable
+    session_destroy();
+
+    // Render template view
+    include("templates/home.php");
+} else if ($action == "modify") {    
+    //
+    // Modify ebook
+    //
 } else {
     //
     // default action => home/welcome page
