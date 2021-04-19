@@ -203,11 +203,15 @@ if ($action == "welcome") {
 
     if (($_GET["login"] == ADMIN_LOGIN) && ($_GET["password"] == ADMIN_PASSWORD)) {
         // Mémorisation de l'authentification pour la suite
-        $_SESSION["authentication"] = 1;
+        $_SESSION["authentication"] = 1;        
 
         // Render template view
         include("templates/home.php");
+    } else {
+        // Render template view
+        include("templates/home.php");
     }
+
 } else if ($action == "signout") {
     //
     // Sign out

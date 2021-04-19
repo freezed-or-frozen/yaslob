@@ -78,6 +78,13 @@ include("header.php");
         echo "</p>";
 
         echo "</td>";
+        if ($_SESSION["authentication"] == 1) {
+            echo "<td>";
+            echo "<a href=\"index.php?action=delete&id={$ebook["url"]}\" class=\"btn btn-outline-danger\">Delete</a><br/>";
+            echo "<a href=\"index.php?action=edit&id={$ebook["url"]}\" class=\"btn btn-outline-danger\">Edit</a><br/>";
+            
+            echo "</td>";
+        }
         echo "</tr>";
     }
     ?>
