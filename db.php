@@ -239,6 +239,62 @@ class EbooksDB {
         }
         return $tags;
     }
+
+
+    /**
+     * Get one ebook by url
+     * @param url the slugified title of the ebook
+     * @return ebook associative array
+     */
+    function getEbookByUrl($url) {
+        $xml = simplexml_load_file($this->databasePath);
+
+        $ebooks = array();       
+        foreach ($xml->ebook as $ebookNode) {
+            
+            // If true, than add ebook to the list and return
+            if (strpos($url, (string)$ebookNode->url) !== false) {
+                $ebook = array();
+                $ebook["title"] = (string)$ebookNode->title;
+                $ebook["author"] = (string)$ebookNode->author;
+                $ebook["description"] = (string)$ebookNode->description;
+                $ebook["year"] = (int)$ebookNode->year;
+                $ebook["pages"] = (int)$ebookNode->pages;
+                $ebook["date"] = (int)$ebookNode->date;
+                $ebook["url"] = (string)$ebookNode->url;
+                $ebook["nsfk"] = (int)$ebookNode->nsfk;
+                $ebook["note"] = (int)$ebookNode->note;
+                $ebook["tags"] = array();
+                foreach ($ebookNode->tags->tag as $tagNode) {
+                    array_push($ebook["tags"], (string)$tagNode);
+                }
+                array_push($ebooks, $ebook);
+            }
+        }
+        return $ebooks;
+    }
+
+
+    /**
+     * Get all tags (for autocomplete)
+     * @return tags array of tags ["cpp", "php", "rust"]
+     */
+    function deleteEbook($url) { 
+        // Search ebook node corresponding tu $url parameter 
+        $xml = simplexml_load_file($this->databasePath);
+        $ebookNode = $xml->xpath("/ebooks/ebook[url='{$url}']");
+
+        // Delete ebook from XML database
+        $dom = dom_import_simplexml($ebookNode[0]);
+        $dom->parentNode->removeChild($dom);
+
+        // Save XML database file
+        $xml->asXML($this->databasePath);
+
+        // Delete cover and PDF files
+        unlink(COVERS_PATH."/".$url.".png");
+        unlink(EBOOKS_PATH."/".$url.".pdf");       
+    }
 }
 
 

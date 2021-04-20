@@ -225,10 +225,45 @@ if ($action == "welcome") {
 
     // Render template view
     include("templates/home.php");
-} else if ($action == "modify") {    
+} else if ($action == "delete") {    
     //
-    // Modify ebook
+    // Delete an ebook
     //
+
+    // Get url parameters from URL
+    if (isset($_GET["url"])) {
+        $url = $_GET["url"];
+        $db->deleteEbook($url);
+        $_SESSION["notification"] = "Ebook <strong>{$url}</strong> was deleted !";        
+    } else {
+        $_SESSION["notification"] = "Sorry, cannot handle URL";
+    }
+
+    // Render template view
+    $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
+    include("templates/list.php");
+
+} else if ($action == "edit") {   
+    //
+    // Edit an ebook
+    //
+
+    // Get url parameters from URL
+    if (isset($_GET["url"])) {
+        $url = $_GET["url"];
+        $ebook = $db->getEbookByUrl($url);
+
+        // Render template view
+        include("templates/edit.php");
+        
+    } else {
+        $_SESSION["notification"] = "Sorry, cannot handle URL";
+        // Render template view
+        $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
+        include("templates/list.php");
+    }
+
+    
 } else {
     //
     // default action => home/welcome page

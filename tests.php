@@ -83,7 +83,15 @@ echo "memory_limit => ".$memory_limit."<br />";
 echo "upload_mb => ".$upload_mb."<br />";
 */
 
-$ebooks = $db->getEbooksByWord("grimm");
-printToDebug($ebooks);
+//$ebooks = $db->getEbooksByWord("grimm");
+//printToDebug($ebooks);
+
+//$ebook = $db->getEbookByUrl("6-pillars-of-creativity");
+//printToDebug($ebook);
+
+//$temp1 = $db->deleteEbook("test");
+//printToDebug($temp1);
+$temp2 = $db->deleteEbook("6-pillars-of-creativity");
+printToDebug($temp2);
 
 ?>

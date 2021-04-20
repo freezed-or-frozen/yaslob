@@ -78,3 +78,13 @@
 
     <!-- main bootstrap container -->
     <main role="main" class="container starter-template">
+
+    <!-- Notification messages --> 
+    <?php
+    if (isset($_SESSION["notification"]) && (strlen($_SESSION["notification"])>0)) {
+        echo "<div class=\"alert alert-warning\" role=\"alert\">";
+        echo $_SESSION["notification"];
+        echo "</div>";
+        $_SESSION["notification"] = "";
+    }
+    ?>
