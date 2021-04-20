@@ -43,22 +43,22 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=welcome">Home</a>
+                <a class="nav-link" href="index.php?action=welcome"><i class="bi bi-house-door-fill"></i> Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=list">Ebooks</a>
+                <a class="nav-link" href="index.php?action=list"><i class="bi bi-book-fill"></i> Ebooks</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=search">Search</a>
+                <a class="nav-link" href="index.php?action=search"><i class="bi bi-search"></i> Search</a>
             </li>
             
             <!-- If admin is authenticated... -->
             <?php if ( (isset($_SESSION["authentication"])) && ($_SESSION["authentication"] == 1) ) : ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=new">New</a>
+                    <a class="nav-link" href="index.php?action=new"><i class="bi bi-plus-circle-fill"></i> New</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=modify">Modify</a>
+                    <a class="nav-link" href="index.php?action=edit"><i class="bi bi-pencil-fill"></i> Edit</a>
                 </li>
 
                 <!-- Disconnect button -->
