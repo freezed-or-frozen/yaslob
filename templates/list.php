@@ -81,7 +81,7 @@ include("header.php");
         if ($_SESSION["authentication"] == 1) {
             echo "<td>";
             echo "<a href=\"index.php?action=delete&url={$ebook["url"]}\" class=\"btn btn-danger\">Delete</a><br/>";
-            echo "<a href=\"index.php?action=edit&url={$ebook["url"]}\" class=\"btn btn-warning\">Edit</a><br/>";
+            echo "<a href=\"index.php?action=editform&url={$ebook["url"]}\" class=\"btn btn-warning\">Edit</a><br/>";
             
             echo "</td>";
         }

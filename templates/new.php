@@ -53,6 +53,7 @@ include("header.php");
             <label>Note : </label>
             <div class="form-control" id="note">
                 <i id="star1" class="bi bi-star"></i><i id="star2" class="bi bi-star"></i><i id="star3" class="bi bi-star"></i><i id="star4" class="bi bi-star"></i><i id="star5" class="bi bi-star"></i>                
+                <input type="hidden" name="notevalue" id="notevalue" />
             </div>
         </div>
 

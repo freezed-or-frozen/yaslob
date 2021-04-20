@@ -91,7 +91,19 @@ echo "upload_mb => ".$upload_mb."<br />";
 
 //$temp1 = $db->deleteEbook("test");
 //printToDebug($temp1);
-$temp2 = $db->deleteEbook("6-pillars-of-creativity");
-printToDebug($temp2);
+//$temp2 = $db->deleteEbook("6-pillars-of-creativity");
+//printToDebug($temp2);
+
+$db->updateEbook(
+    "6-pillars-of-creativity",
+    "7 Pillars Of Creativity",
+    "Tommy Fountainhead Geldschläger",
+    "Livre pour développer sa créativité et tout le reste",    
+    "2021",
+    "27",
+    "1",
+    "5",
+    "créativité,développement"
+);
 
 ?>

@@ -174,6 +174,7 @@ $("#tags").tagsInput({
  */
 $("#star1").on('click', function(event) {
     ebookNote = 1;
+    document.getElementById("notevalue").value = ebookNote;
     $("#star1").attr("class", "bi bi-star-fill");
     $("#star2").attr("class", "bi bi-star");
     $("#star3").attr("class", "bi bi-star");
@@ -186,6 +187,7 @@ $("#star1").on('click', function(event) {
  */
 $("#star2").on('click', function(event) {
     ebookNote = 2;
+    document.getElementById("notevalue").value = ebookNote;
     $("#star1").attr("class", "bi bi-star-fill");
     $("#star2").attr("class", "bi bi-star-fill");
     $("#star3").attr("class", "bi bi-star");
@@ -198,6 +200,7 @@ $("#star2").on('click', function(event) {
  */
 $("#star3").on('click', function(event) {
     ebookNote = 3;
+    document.getElementById("notevalue").value = ebookNote;
     $("#star1").attr("class", "bi bi-star-fill");
     $("#star2").attr("class", "bi bi-star-fill");
     $("#star3").attr("class", "bi bi-star-fill");
@@ -210,6 +213,7 @@ $("#star3").on('click', function(event) {
  */
 $("#star4").on('click', function(event) {
     ebookNote = 4;
+    document.getElementById("notevalue").value = ebookNote;
     $("#star1").attr("class", "bi bi-star-fill");
     $("#star2").attr("class", "bi bi-star-fill");
     $("#star3").attr("class", "bi bi-star-fill");
@@ -222,6 +226,7 @@ $("#star4").on('click', function(event) {
  */
 $("#star5").on('click', function(event) {
     ebookNote = 5;
+    document.getElementById("notevalue").value = ebookNote;
     $("#star1").attr("class", "bi bi-star-fill");
     $("#star2").attr("class", "bi bi-star-fill");
     $("#star3").attr("class", "bi bi-star-fill");

@@ -271,13 +271,13 @@ class EbooksDB {
                 array_push($ebooks, $ebook);
             }
         }
-        return $ebooks;
+        return $ebooks[0];
     }
 
 
     /**
-     * Get all tags (for autocomplete)
-     * @return tags array of tags ["cpp", "php", "rust"]
+     * Delete an ebook with its url (slugify title)
+     * @param url the slugified title
      */
     function deleteEbook($url) { 
         // Search ebook node corresponding tu $url parameter 
@@ -294,6 +294,49 @@ class EbooksDB {
         // Delete cover and PDF files
         unlink(COVERS_PATH."/".$url.".png");
         unlink(EBOOKS_PATH."/".$url.".pdf");       
+    }
+
+
+    /**
+     * Update an ebook with its url (slugify title)
+     * @param url the slugified title
+     */
+    function updateEbook($url, $title, $author, $description, $year, $pages, $nsfk, $note, $tagsList) { 
+        // Search ebook node corresponding tu $url parameter 
+        $xml = simplexml_load_file($this->databasePath);
+        $ebookNode = $xml->xpath("/ebooks/ebook[url='{$url}']")[0];
+
+        if ($title != (string)$ebookNode->title) {
+            $ebookNode->title = $title;
+        }
+        if ($author != (string)$ebookNode->author) {
+            $ebookNode->author = $author;
+        }
+        if ($description != (string)$ebookNode->description) {
+            $ebookNode->description = $description;
+        }
+        if ($year != (string)$ebookNode->year) {
+            $ebookNode->year = $year;
+        }
+        if ($pages != (string)$ebookNode->pages) {
+            $ebookNode->pages = $pages;
+        }
+        if ($nsfk != (string)$ebookNode->nsfk) {
+            $ebookNode->nsfk = $nsfk;
+        }
+        if ($note != (string)$ebookNode->note) {
+            $ebookNode->note = $note;
+        }
+        if ($tagsList != (string)$ebookNode->tags) {
+            // New tags node with tag children nodes
+            $tags = explode(',', $tagsList);            
+            foreach ($tags as $tag) {
+                $ebookNode->tags->addChild("tag", $tag);
+            }
+        }
+
+        // Save XML database file
+        $xml->asXML($this->databasePath);    
     }
 }
 

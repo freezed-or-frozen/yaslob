@@ -243,15 +243,20 @@ if ($action == "welcome") {
     $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
     include("templates/list.php");
 
-} else if ($action == "edit") {   
+} else if ($action == "editform") {   
     //
-    // Edit an ebook
+    // Edit an ebook (prepare form)
     //
 
     // Get url parameters from URL
     if (isset($_GET["url"])) {
         $url = $_GET["url"];
-        $ebook = $db->getEbookByUrl($url);
+        $ebook = $db->getEbookByUrl($url);        
+        $ebook["tagsline"] = "";
+        foreach ($ebook["tags"] as $tags) {
+            $ebook["tagsline"] .= $tags.",";
+        }
+        //var_dump($ebook);
 
         // Render template view
         include("templates/edit.php");
@@ -263,7 +268,52 @@ if ($action == "welcome") {
         include("templates/list.php");
     }
 
+} else if ($action == "edit") {   
+    //
+    // Edit an ebook (apply modification)
+    //
+    var_dump($_GET);
+    // Retrieve all parameters
+    if (    (isset($_GET["url"])) &&
+            (isset($_GET["title"])) &&
+            (isset($_GET["author"])) &&
+            (isset($_GET["description"])) && 
+            (isset($_GET["year"])) && 
+            (isset($_GET["pages"])) &&             
+            (isset($_GET["notevalue"])) && 
+            (isset($_GET["tags"])) ) {
+        
+        $nsfk = 0;
+        if (!isset($_GET["nsfk"])) {
+            $nsfk = 0;
+        } else {
+            $nsfw = 1;
+        }
+        
+        // Update XML database
+        $db->updateEbook(
+            $_GET["url"],
+            $_GET["title"],
+            $_GET["author"],
+            $_GET["description"],
+            $_GET["year"],
+            $_GET["pages"],
+            $nsfk,
+            $_GET["notevalue"],
+            $_GET["tags"]
+        );
+
+        $_SESSION["notification"] = "<strong>{$_GET["url"]}</strong> was updated";
+    } else {
+
+        $_SESSION["notification"] = "Sorry, one parameter is missing";        
+    }
+
+    // Render template view
+    $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
+    include("templates/list.php");
     
+
 } else {
     //
     // default action => home/welcome page
