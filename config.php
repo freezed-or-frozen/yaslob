@@ -13,13 +13,13 @@
 define("BASE_URL", "http://127.0.0.1/yaslob");
 
 // Path to XML database
-define("DATABASE_PATH", "data/db/ebooks.xml");
+define("DATABASE_PATH", "../yaslob_data/db/ebooks.xml");
 
 // Path to ebook cover images
-define("COVERS_PATH", "data/covers");
+define("COVERS_PATH", "../yaslob_data/covers");
 
 // Path to ebook pdf
-define("EBOOKS_PATH", "data/ebooks");
+define("EBOOKS_PATH", "../yaslob_data/ebooks");
 
 // Maximum number of ebooks in the front page
 define("MAX_EBOOKS_NUMBER", 5);
