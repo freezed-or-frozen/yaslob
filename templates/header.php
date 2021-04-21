@@ -43,32 +43,56 @@
 
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=welcome"><i class="bi bi-house-door-fill"></i> Home</a>
+                <form action="index.php" method="POST">
+                    <input type="hidden" name="action" value="welcome" />
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-house-door-fill"></i> Home</button>
+                </form>
+                <!--<a class="nav-link" href="index.php?action=welcome"><i class="bi bi-house-door-fill"></i> Home</a>-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=list"><i class="bi bi-book-fill"></i> Ebooks</a>
+                <form action="index.php" method="POST">
+                    <input type="hidden" name="action" value="list" />
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-book-fill"></i> Ebooks</button>                
+                </form>
+                <!--<a class="nav-link" href="index.php?action=list"><i class="bi bi-book-fill"></i> Ebooks</a>-->
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?action=search"><i class="bi bi-search"></i> Search</a>
+                <form action="index.php" method="POST">
+                    <input type="hidden" name="action" value="search" />
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i> Search</button>
+                </form>
+                <!--<a class="nav-link" href="index.php?action=search"><i class="bi bi-search"></i> Search</a>-->
             </li>
             
             <!-- If admin is authenticated... -->
             <?php if ( (isset($_SESSION["authentication"])) && ($_SESSION["authentication"] == 1) ) : ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=new"><i class="bi bi-plus-circle-fill"></i> New</a>
+                    <form action="index.php" method="POST">
+                        <input type="hidden" name="action" value="new" />
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-plus-circle-fill"></i> New</button>
+                    </form>
+                    <!--<a class="nav-link" href="index.php?action=new"><i class="bi bi-plus-circle-fill"></i> New</a>-->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=edit"><i class="bi bi-pencil-fill"></i> Edit</a>
+                    <form action="index.php" method="POST">
+                        <input type="hidden" name="action" value="edit" />
+                        <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Edit</button>
+                    </form>
+                    <!--<a class="nav-link" href="index.php?action=edit"><i class="bi bi-pencil-fill"></i> Edit</a>-->
                 </li>
 
                 <!-- Disconnect button -->
-                <form action="index.php" method="GET">
+                <form action="index.php" method="POST">
                     <input type="hidden" name="action" value="signout" />
                     <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Disconnect</button>
                 </form>
             <?php else: ?>
                 <li class="nav-item">
-                    <a class="btn btn-outline-info my-2 my-sm-0" href="index.php?action=adminform">Sign in</a>
+                    <form action="index.php" method="POST">
+                        <input type="hidden" name="action" value="adminform" />
+                        <!--<a class="btn btn-outline-info my-2 my-sm-0" href="index.php?action=adminform">Sign in</a>-->
+                        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Sign in</button>
+                    </form>
                 </li>
             <?php endif; ?>
             

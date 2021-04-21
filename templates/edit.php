@@ -22,7 +22,7 @@ include("header.php");
     <!-- Left part : form -->
     <div class="col-8">
 
-    <form action="index.php" method="get">
+    <form action="index.php" method="POST">
 
         <input type="hidden" name="action" value="edit" />
         <input type="hidden" name="url" value="<?php echo $ebook["url"]; ?>" />

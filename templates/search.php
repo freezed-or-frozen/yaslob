@@ -17,7 +17,7 @@ include("header.php");
 
 <!-- Content of the search page -->
 <h1>Search</h1>
-<form action="index.php">
+<form action="index.php" method="POST">
     <div class="form-group">
         <label>Search ebooks by <strong>word</strong> : </label><br />
         <input type="hidden" name="action" value="list" />
@@ -28,7 +28,11 @@ include("header.php");
         <label>Search ebooks by <strong>tags</strong> : </label><br />
         <?php
         foreach($tags as $tag) {
-            echo "<a href=\"index.php?action=list&tag={$tag}\" class=\"badge badge-info\">{$tag}</a>&nbsp;";
+            echo "<form action=\"index.php\" method=\"POST\">";
+            echo "<input type=\"hidden\" name=\"action\" value=\"list\" />";
+            echo "<input type=\"hidden\" name=\"tag\" value=\"{$tag}\" />";
+            echo "<input type=\"submit\" class=\"badge badge-info\">";
+            echo "</form>";
         }
         ?>
     </div>

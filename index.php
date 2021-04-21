@@ -20,8 +20,8 @@ include("db.php");
 
 
 // Get parameters from URL
-if (isset($_GET["action"])) {
-    $action = $_GET["action"];
+if (isset($_POST["action"])) {
+    $action = $_POST["action"];
 } else {
     $action = NULL;
 }
@@ -137,11 +137,11 @@ if ($action == "welcome") {
 
     // Get ebooks list depending on the way it is asked
     $ebooks = NULL;
-    if (isset($_GET["tag"])) {
-        $tagName = $_GET["tag"];
+    if (isset($_POST["tag"])) {
+        $tagName = $_POST["tag"];
         $ebooks = $db->getEbooksByTag($tagName);
-    } else if (isset($_GET["word"])) {
-        $word = $_GET["word"];
+    } else if (isset($_POST["word"])) {
+        $word = $_POST["word"];
         $ebooks = $db->getEbooksByWord($word);
     } else {        
         $ebooks = $db->getLastEbooks(MAX_EBOOKS_NUMBER);
@@ -156,8 +156,8 @@ if ($action == "welcome") {
     //
     // Get the "term" parameter sent by jQuery-Tags-Inputs library
     $tags = NULL;
-    if (isset($_GET["term"])) {
-        $startwith = $_GET["term"];
+    if (isset($_POST["term"])) {
+        $startwith = $_POST["term"];
         $tags = $db->getTagsStartingWith($startwith);
     } else {
         $startwith = NULL;
@@ -201,7 +201,7 @@ if ($action == "welcome") {
     // Sign in
     //
 
-    if (($_GET["login"] == ADMIN_LOGIN) && ($_GET["password"] == ADMIN_PASSWORD)) {
+    if (($_POST["login"] == ADMIN_LOGIN) && ($_POST["password"] == ADMIN_PASSWORD)) {
         // Mémorisation de l'authentification pour la suite
         $_SESSION["authentication"] = 1;        
 
@@ -231,8 +231,8 @@ if ($action == "welcome") {
     //
 
     // Get url parameters from URL
-    if (isset($_GET["url"])) {
-        $url = $_GET["url"];
+    if (isset($_POST["url"])) {
+        $url = $_POST["url"];
         $db->deleteEbook($url);
         $_SESSION["notification"] = "Ebook <strong>{$url}</strong> was deleted !";        
     } else {
@@ -249,8 +249,8 @@ if ($action == "welcome") {
     //
 
     // Get url parameters from URL
-    if (isset($_GET["url"])) {
-        $url = $_GET["url"];
+    if (isset($_POST["url"])) {
+        $url = $_POST["url"];
         $ebook = $db->getEbookByUrl($url);        
         $ebook["tagsline"] = "";
         foreach ($ebook["tags"] as $tags) {
@@ -274,17 +274,17 @@ if ($action == "welcome") {
     //
 
     // Retrieve all parameters
-    if (    (isset($_GET["url"])) &&
-            (isset($_GET["title"])) &&
-            (isset($_GET["author"])) &&
-            (isset($_GET["description"])) && 
-            (isset($_GET["year"])) && 
-            (isset($_GET["pages"])) &&             
-            (isset($_GET["notevalue"])) && 
-            (isset($_GET["tags"])) ) {
+    if (    (isset($_POST["url"])) &&
+            (isset($_POST["title"])) &&
+            (isset($_POST["author"])) &&
+            (isset($_POST["description"])) && 
+            (isset($_POST["year"])) && 
+            (isset($_POST["pages"])) &&             
+            (isset($_POST["notevalue"])) && 
+            (isset($_POST["tags"])) ) {
         
         $nsfk = 0;
-        if (!isset($_GET["nsfk"])) {
+        if (!isset($_POST["nsfk"])) {
             $nsfk = 0;
         } else {
             $nsfw = 1;
@@ -292,18 +292,18 @@ if ($action == "welcome") {
         
         // Update XML database
         $db->updateEbook(
-            $_GET["url"],
-            $_GET["title"],
-            $_GET["author"],
-            $_GET["description"],
-            $_GET["year"],
-            $_GET["pages"],
+            $_POST["url"],
+            $_POST["title"],
+            $_POST["author"],
+            $_POST["description"],
+            $_POST["year"],
+            $_POST["pages"],
             $nsfk,
-            $_GET["notevalue"],
-            $_GET["tags"]
+            $_POST["notevalue"],
+            $_POST["tags"]
         );
 
-        $_SESSION["notification"] = "<strong>{$_GET["url"]}</strong> was updated";
+        $_SESSION["notification"] = "<strong>{$_POST["url"]}</strong> was updated";
     } else {
 
         $_SESSION["notification"] = "Sorry, one parameter is missing";        
