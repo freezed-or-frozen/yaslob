@@ -23,8 +23,8 @@ Requirements :
   * [X] add/remove tags easily (with autocomplete)
   * [X] list ebooks by date (last 10 added ebooks for example)
   * [X] search ebooks by tags and by word in title, author or description
-  * [ ] modify or delete an uploaded ebook
-  * [ ] protect add/edit/delete actions with authentication 
+  * [X] modify or delete an uploaded ebook
+  * [X] protect add/edit/delete actions with authentication 
   * [ ] protect access to some ebooks (Not Safe For Kids)
 
 
@@ -49,7 +49,12 @@ And depending on the security level you want to reach, **data** folder should be
 // Base URL
 define("BASE_URL", "http://1.2.3.4/yaslob");
 ```
-
+4 - Change the admin credentials too
+```php
+// Base URL
+define("ADMIN_LOGIN", "admin");
+define("ADMIN_PASSWORD", "p4ssw0rd");
+```
 
 ## Database
 Data format in XML file :
