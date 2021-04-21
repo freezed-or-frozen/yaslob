@@ -327,12 +327,16 @@ class EbooksDB {
         if ($note != (string)$ebookNode->note) {
             $ebookNode->note = $note;
         }
-        if ($tagsList != (string)$ebookNode->tags) {
-            // New tags node with tag children nodes
-            $tags = explode(',', $tagsList);            
-            foreach ($tags as $tag) {
-                $ebookNode->tags->addChild("tag", $tag);
-            }
+
+        // Delete tags node from XML database
+        $dom = dom_import_simplexml($ebookNode->tags);
+        $dom->parentNode->removeChild($dom);
+
+        // New tags node with tag children nodes
+        $tags = explode(',', $tagsList);
+        $tagsNode = $ebookNode->addChild("tags");
+        foreach ($tags as $tag) {
+            $tagsNode->addChild("tag", $tag);
         }
 
         // Save XML database file

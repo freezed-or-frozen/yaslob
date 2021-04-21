@@ -272,7 +272,7 @@ if ($action == "welcome") {
     //
     // Edit an ebook (apply modification)
     //
-    var_dump($_GET);
+
     // Retrieve all parameters
     if (    (isset($_GET["url"])) &&
             (isset($_GET["title"])) &&
