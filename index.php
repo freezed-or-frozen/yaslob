@@ -8,8 +8,9 @@
  * @license MIT
  */
 
- // If session not active...
-if (session_status() !== PHP_SESSION_ACTIVE) {
+// If session not active...
+//if (session_status() !== PHP_SESSION_ACTIVE) {    // PHP >= 5.4.0
+if (session_id() == "") {                           // PHP < 5.4.0
     // ...then we start one
     session_start();
 }

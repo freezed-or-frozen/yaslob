@@ -73,13 +73,6 @@
                     </form>
                     <!--<a class="nav-link" href="index.php?action=new"><i class="bi bi-plus-circle-fill"></i> New</a>-->
                 </li>
-                <li class="nav-item">
-                    <form action="index.php" method="POST">
-                        <input type="hidden" name="action" value="edit" />
-                        <button type="submit" class="btn btn-primary"><i class="bi bi-pencil-fill"></i> Edit</button>
-                    </form>
-                    <!--<a class="nav-link" href="index.php?action=edit"><i class="bi bi-pencil-fill"></i> Edit</a>-->
-                </li>
 
                 <!-- Disconnect button -->
                 <form action="index.php" method="POST">
