@@ -18,7 +18,7 @@ include("header.php");
 <!-- Content of the login page -->
 <h1>Sign in</h1>
 
-<form action="index.php" method="GET">
+<form action="index.php" method="POST">
 
     <!-- Hidden input to precize action in the controller -->
     <input type="hidden" name="action" value="signin" />

@@ -9,11 +9,18 @@
  */
 
 // If session not active...
-//if (session_status() !== PHP_SESSION_ACTIVE) {    // PHP >= 5.4.0
-if (session_id() == "") {                           // PHP < 5.4.0
-    // ...then we start one
-    session_start();
+if (version_compare(phpversion(), "5.4.0", "<")) {
+    if (session_id() == "") {                           // PHP < 5.4.0
+        // ...then we start one
+        session_start();
+    }
+} else {
+    if (session_status() !== PHP_SESSION_ACTIVE) {    // PHP >= 5.4.0
+        // ...then we start one
+        session_start();
+    } 
 }
+
 
 // Include configuration and database
 include("config.php");
@@ -207,9 +214,11 @@ if ($action == "welcome") {
         $_SESSION["authentication"] = 1;        
 
         // Render template view
+        $_SESSION["notification"] = "Welcome <strong>".ADMIN_LOGIN."</strong> !";
         include("templates/home.php");
     } else {
         // Render template view
+        $_SESSION["notification"] = "Sorry, login and/or password are wrong";
         include("templates/home.php");
     }
 

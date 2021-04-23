@@ -57,7 +57,9 @@ include("header.php");
             echo "</li>";
             echo "</ul>";
             echo "</td>";
-            echo "<td>";
+
+
+            echo "<td colspan=\"2\">";
 
             // Description
             echo "<p>";
@@ -69,21 +71,36 @@ include("header.php");
             foreach($ebook["tags"] as $tag) {
                 echo "<a href=\"index.php?action=list&tag={$tag}\" class=\"badge badge-info\">{$tag}</a>&nbsp;";
             }
-            echo "</p>";
-            echo "<p>";
-            if ($ebook["nsfk"] == 1) {
-                echo "NSFK : <i class=\"bi bi-hand-thumbs-down-fill\"></i>";
-            } else {
-                echo "NSFK : <i class=\"bi bi-hand-thumbs-up-fill\"></i>";
-            }
+            //echo "</p>";
+            //echo "<p>";
+            
             echo "</p>";
 
             echo "</td>";
+
             if ( (isset($_SESSION["authentication"])) && ($_SESSION["authentication"] == 1) ) {
                 echo "<td>";
-                echo "<a href=\"index.php?action=delete&url={$ebook["url"]}\" class=\"btn btn-danger\"><i class=\"bi bi-file-earmark-x-fill\"></i> Delete</a><br/>";
-                echo "<a href=\"index.php?action=editform&url={$ebook["url"]}\" class=\"btn btn-warning\"><i class=\"bi bi-pencil-fill\"></i> Edit</a><br/>";
-                
+                echo "<p>";
+                echo "<form action=\"index.php\" method=\"POST\">";
+                echo "<input type=\"hidden\" name=\"action\" value=\"delete\" />";
+                echo "<input type=\"hidden\" name=\"url\" value=\"{$ebook["url"]}\" />";
+                echo "<button class=\"btn btn-danger\"><i class=\"bi bi-file-earmark-x-fill\"></i> Delete</button>";
+                echo "</form>";
+                echo "<form action=\"index.php\" method=\"POST\">";
+                echo "<input type=\"hidden\" name=\"action\" value=\"editform\" />";
+                echo "<input type=\"hidden\" name=\"url\" value=\"{$ebook["url"]}\" />";
+                echo "<button class=\"btn btn-warning\"><i class=\"bi bi-pencil-fill\"></i> Edit</button>";
+                echo "</form>";
+                echo "</p>";
+                //echo "<a href=\"index.php?action=delete&url={$ebook["url"]}\" class=\"btn btn-danger\"><i class=\"bi bi-file-earmark-x-fill\"></i> Delete</a><br/>";
+                //echo "<a href=\"index.php?action=editform&url={$ebook["url"]}\" class=\"btn btn-warning\"><i class=\"bi bi-pencil-fill\"></i> Edit</a><br/>";
+                echo "<p>";
+                if ($ebook["nsfk"] == 1) {
+                    echo "NSFK : <i class=\"bi bi-hand-thumbs-down-fill\"></i>";
+                } else {
+                    echo "NSFK : <i class=\"bi bi-hand-thumbs-up-fill\"></i>";
+                }
+                echo "</p>";
                 echo "</td>";
             }
             echo "</tr>";
