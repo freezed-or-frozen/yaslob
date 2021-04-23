@@ -25,7 +25,7 @@ Requirements :
   * [X] search ebooks by tags and by word in title, author or description
   * [X] modify or delete an uploaded ebook
   * [X] protect add/edit/delete actions with authentication 
-  * [ ] protect access to some ebooks (Not Safe For Kids)
+  * [ ] hide access to some ebooks (Not Safe For Kids)
 
 
 ## Screenshots
