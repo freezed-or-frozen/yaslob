@@ -27,6 +27,7 @@ Requirements :
   * [X] protect add/edit/delete actions with authentication 
   * [X] hide access to some ebooks (Not Safe For Kids)
   * [ ] serve ebooks from a directory outside root web server folder
+  * [ ] check if ebook's name already exists and rename it
 
 
 ## Screenshots
