@@ -304,7 +304,8 @@ class EbooksDB {
     function updateEbook($url, $title, $author, $description, $year, $pages, $nsfk, $note, $tagsList) { 
         // Search ebook node corresponding tu $url parameter 
         $xml = simplexml_load_file($this->databasePath);
-        $ebookNode = $xml->xpath("/ebooks/ebook[url='{$url}']")[0];
+        $ebookNode = $xml->xpath("/ebooks/ebook[url='{$url}']");
+        $ebookNode = $ebookNode[0];
 
         if ($title != (string)$ebookNode->title) {
             $ebookNode->title = $title;
