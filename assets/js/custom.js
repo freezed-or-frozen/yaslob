@@ -102,7 +102,7 @@ function uploadEbook() {
             type: "POST",
             //contentType: "application/json; charset=utf-8",
             //dataType: "json",
-            data: {
+            data: {                
                 "title": jsonData["title"],
                 "author": jsonData["author"],
                 "pages": jsonData["pages"],

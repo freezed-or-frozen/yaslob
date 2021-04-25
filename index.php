@@ -27,9 +27,11 @@ include("config.php");
 include("db.php");
 
 
-// Get parameters from URL
+// Get parameters from URL or form
 if (isset($_POST["action"])) {
     $action = $_POST["action"];
+} else if (isset($_GET["action"])) {
+    $action = $_GET["action"];
 } else {
     $action = NULL;
 }
@@ -37,34 +39,6 @@ if (isset($_POST["action"])) {
 
 // Create database object
 $db = new EbooksDB(DATABASE_PATH);
-
-/*
-// Check if user is authenticated
-if ( (isset($_SESSION["authentication"]) == FALSE) || ($_SESSION["authentication"] == 0) ) {
-
-    // Does he want to anthenticate ?
-    if ($_POST["action"] == "authentication") {
-
-        // If so, check login/password
-        if (    ($_POST["login"] == ADMIN_LOGIN) &&
-                ($_POST["password"] == ADMIN_PASSWORD) ) {
-
-            // Memorize that he is authenticated
-            $_SESSION["authentication"] = 1;
-
-            // Redirection thru the home page            
-            include("templates/home.php");
-        }
-        else {
-            // Redirection thru login form
-            include("templates/authentication.php");
-        }
-    } else {
-        // Redirection thru login form
-        include("templates/authentication.php");
-    }
-} else {
-*/
 
 
 // Router : choose action to do
@@ -135,7 +109,7 @@ if ($action == "welcome") {
     // Prepare notification message
     $_SESSION["notification"] = "Upload of <strong>{$ebookName}.pdf</strong> is done";
 
-    // Finally send answer    
+    // Finally send answer to jQuery request   
     echo "OK";
 
 } else if ($action == "list") {
